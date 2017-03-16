@@ -1,6 +1,6 @@
 corr <- function(directory, threshold = 0) {
   allComplete <- complete(directory)
-  filteredComplete <- subset(allComplete, obs > threshold)
+  filteredComplete <- subset(allComplete, nobs > threshold)
   
   rtn <- {}
   allFiles <- as.character( list.files(directory) )

@@ -24,3 +24,13 @@ summary(cr)
 
 cr <- corr("specdata", 400)
 head(cr)
+
+summary(cr)
+
+cr <- corr("specdata", 5000)
+summary(cr)
+
+cr <- corr("specdata")
+summary(cr)
+
+length(cr)

@@ -4,7 +4,7 @@ complete <- function(directory, id = 1:332) {
   rtn <- {}
   for(fileId in id) {
     singleData <- read.csv(filePaths[fileId], header = T)
-    rtn <- rbind(rtn, data.frame(id= fileId, obs = sum(!is.na(singleData[,"sulfate"]), na.rm = TRUE)))
+    rtn <- rbind(rtn, data.frame(id= fileId, nobs = sum(!is.na(singleData[,"sulfate"]), na.rm = TRUE)))
   }
   return(rtn)
 }
