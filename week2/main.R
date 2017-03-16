@@ -2,6 +2,7 @@ setwd("/Users/Julius/JHU_Rlang_HW/jhu_Rlang_homework/week2")
 
 source("pollutantmean.R")
 source("complete.R")
+source("corr.R")
 
 pollutantmean("specdata", "sulfate", 1:10)
 
@@ -16,3 +17,10 @@ complete("specdata", c(2, 4, 8, 10, 12))
 complete("specdata", 30:25)
 
 complete("specdata", 3)
+
+cr <- corr("specdata", 150)
+head(cr)
+summary(cr)
+
+cr <- corr("specdata", 400)
+head(cr)

@@ -8,8 +8,7 @@ corr <- function(directory, threshold = 0) {
   for(fileId in filteredComplete$id) {
     singleRawData <- read.csv(filePaths[fileId], header = T)
     singleData <- na.omit(data.frame(singleRawData))
-    singleData$Date <- NULL
-    rtn <- rbind(rtn, cor(singleData))
+    rtn <- rbind(rtn, corr=cor(x=singleData$sulfate,y=singleData$nitrate))
   }
   return(rtn)
 }
