@@ -1,0 +1,188 @@
+關閉
+Week 4 Quiz
+
+已通過
+9/10 得分（90%)
+測驗通過！
+繼續課程
+返回第 #4 週課程
+
+正確
+1 / 1 分
+1。
+What is produced at the end of this snippet of R code?
+
+
+
+1
+2
+set.seed(1)
+rpois(5, 2)
+
+It is impossible to tell because the result is random
+
+A vector with the numbers 3.3, 2.5, 0.5, 1.1, 1.7
+
+A vector with the numbers 1, 4, 1, 1, 5
+
+A vector with the numbers 1, 1, 2, 4, 1
+正確 
+Because the `set.seed()' function is used, `rpois()' will always output the same vector in this code.
+
+正確
+1 / 1 分
+2。
+What R function can be used to generate standard Normal random variables?
+
+pnorm
+
+dnorm
+
+qnorm
+
+rnorm
+正確 
+Functions beginning with the `r' prefix are used to simulate random variates.
+
+錯誤
+0 / 1 分
+3。
+When simulating data, why is using the set.seed() function important? Select all that apply.
+
+It ensures that the random numbers generated are within specified boundaries.
+這個選項的答案不正確 
+
+It can be used to generate non-uniform random numbers.
+這個選項的答案不正確 
+
+It ensures that the sequence of random numbers is truly random.
+這個選項的答案不正確 
+
+It can be used to specify which random number generating algorithm R should use, ensuring consistency and reproducibility.
+正確 
+
+正確
+1 / 1 分
+4。
+Which function can be used to evaluate the inverse cumulative distribution function for the Poisson distribution?
+
+qpois
+正確 
+Probability distribution functions beginning with the `q' prefix are used to evaluate the quantile (inverse cumulative distribution) function.
+
+rpois
+
+ppois
+
+dpois
+
+正確
+1 / 1 分
+5。
+What does the following code do?
+
+
+
+1
+2
+3
+4
+set.seed(10)
+x <- rep(0:1, each = 5)
+e <- rnorm(10, 0, 20)
+y <- 0.5 + 2 * x + e
+
+Generate uniformly distributed random data
+
+Generate data from a Normal linear model
+正確 
+
+Generate data from a Poisson generalized linear model
+
+Generate random exponentially distributed data
+
+正確
+1 / 1 分
+6。
+What R function can be used to generate Binomial random variables?
+
+pbinom
+
+dbinom
+
+rbinom
+正確 
+
+qbinom
+
+正確
+1 / 1 分
+7。
+What aspect of the R runtime does the profiler keep track of when an R expression is evaluated?
+
+the function call stack
+正確 
+
+the package search list
+
+the working directory
+
+the global environment
+
+正確
+1 / 1 分
+8。
+Consider the following R code
+
+
+
+1
+2
+3
+4
+library(datasets)
+Rprof()
+fit <- lm(y ~ x1 + x2)
+Rprof(NULL)
+(Assume that y, x1, and x2 are present in the workspace.) Without running the code, what percentage of the run time is spent in the 'lm' function, based on the 'by.total' method of normalization shown in 'summaryRprof()'?
+
+It is not possible to tell
+
+23%
+
+50%
+
+100%
+正確 
+When using `by.total' normalization, the top-level function (in this case, `lm()') always takes 100% of the time.
+
+正確
+1 / 1 分
+9。
+When using 'system.time()', what is the user time?
+
+It is the time spent by the CPU waiting for other tasks to finish
+
+It is the "wall-clock" time it takes to evaluate an expression
+
+It is a measure of network latency
+
+It is the time spent by the CPU evaluating an expression
+正確 
+
+正確
+1 / 1 分
+10。
+If a computer has more than one available processor and R is able to take advantage of that, then which of the following is true when using 'system.time()'?
+
+elapsed time may be smaller than user time
+正確 
+
+elapsed time is 0
+
+user time is always smaller than elapsed time
+
+user time is 0
+
+
+
