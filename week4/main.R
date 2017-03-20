@@ -25,3 +25,6 @@ rankhospital("MD", "heart attack", "worst")
 rankhospital("MN", "heart attack", 5000)
 
 rankhospital("TX", "GG", 4)
+
+source("rankall.R")
+head(rankall("heart attack", 20), 10)
