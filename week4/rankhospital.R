@@ -25,10 +25,14 @@ rankhospital <- function(state, outcome, num = "best") {
   } else {
     colNo <- 23
   }
-  print(colNo)
   outcomeOfTheState[,colNo] <- as.numeric(as.character(outcomeOfTheState[,colNo]))
-  orderData <- outcomeOfTheState[,order(colNo)]
-  return(outcomeOfTheState)
+  orderData <- outcomeOfTheState[order(outcomeOfTheState[,colNo],outcomeOfTheState[,2], na.last=NA),]
   
-  return("QQ")
+  if(num == "best") {
+    num <- 1
+  } else if(num == "worst") {
+    num <- as.numeric(nrow(orderData))
+  }
+  
+  return(as.character(orderData[num,]$Hospital.Name))
 }

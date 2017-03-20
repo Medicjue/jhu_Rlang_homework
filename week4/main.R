@@ -18,8 +18,7 @@ best("BB", "heart attack")
 best("NY", "hert attack")
 
 source("rankhospital.R")
-r <- rankhospital("TX", "heart failure", 4)
-print(r)
+rankhospital("TX", "heart failure", 4)
 
 rankhospital("MD", "heart attack", "worst")
 
