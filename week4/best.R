@@ -16,19 +16,34 @@ best <- function(state, outcome) {
   mergedData <- merge(dataOutcomeOfMeasures, hosppitalOfTheState, by = "Provider.Number")
   namesOfData <- names(mergedData)
   
-  patternOfOutcome <- gsub(" ", ".", outcome)
-  for(nameOfData in namesOfData) {
-    
-    if(grepl(patternOfOutcome,nameOfData,ignore.case = T)&& grepl("30.Day",nameOfData,ignore.case = T)) {
-      
-      mergedData[,nameOfData] <- as.numeric(as.character(mergedData[,nameOfData]))
-      minHospital <- min(mergedData[,nameOfData], na.rm = T)
-      print(minHospital)
-      ans <- subset(mergedData, mergedData[,nameOfData]==minHospital)
-      return(ans$Hospital.Name.x)
-    }
-  }
   
-  return("Invalid-outcome")
+  colNo <- NULL
+  if(outcome == "heart attack") {
+    colNo <- 11
+  } else if(outcome == "heart failure") {
+    colNo <- 17
+  } else {
+    colNo <- 23
+  }
+  mergedData[,colNo] <- as.numeric(as.character(mergedData[,colNo]))
+  minHospital <- min(mergedData[,colNo], na.rm = T)
+  print(minHospital)
+  ans <- subset(mergedData, mergedData[,colNo]==minHospital)
+  return(ans$Hospital.Name.x)
+  
+  # patternOfOutcome <- gsub(" ", ".", outcome)
+  # for(nameOfData in namesOfData) {
+  #   
+  #   if(grepl(patternOfOutcome,nameOfData,ignore.case = T)&& grepl("30.Day",nameOfData,ignore.case = T)) {
+  #     
+  #     mergedData[,nameOfData] <- as.numeric(as.character(mergedData[,nameOfData]))
+  #     minHospital <- min(mergedData[,nameOfData], na.rm = T)
+  #     print(minHospital)
+  #     ans <- subset(mergedData, mergedData[,nameOfData]==minHospital)
+  #     return(ans$Hospital.Name.x)
+  #   }
+  # }
+  # 
+  # return("Invalid-outcome")
   ## rate
 }
