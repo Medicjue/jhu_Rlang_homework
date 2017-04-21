@@ -1,0 +1,59 @@
+## JHU Data Cleansing Week 4 Quiz
+
+Q1
+```{r}
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv",destfile = "quiz2data.csv")
+data <- read.csv("quiz2data.csv")
+strsplit(names(data)[123],"wgtp")
+```
+
+
+Ans: [1] ""   "15"
+
+
+Q2 & Q3
+```{r}
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv",destfile = "GDP.csv")
+data <- read.csv("GDP.csv", skip=5,nrows = 190, header = F)
+data$V5 <- gsub(",","",data$V5)
+mean(as.numeric(data$V5),na.rm = T)
+
+class(data$V4)
+cs <- grep("^United", as.character(data$V4))
+length(cs)
+```
+
+Q4
+```{r}
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv",destfile = "GDP.csv")
+dataGdp <- read.csv("GDP.csv")
+
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv",destfile = "Edu.csv")
+dataEdu <- read.csv("Edu.csv")
+
+
+mergedData <- merge(dataGdp, dataEdu, as.x = "CountryCode", as.y = "CountryCode")
+
+cs <- grep("[Ff]iscal year end(.*)+June", as.character(dataEdu$Special.Notes))
+length(cs)
+```
+
+Q5
+```{r}
+install.packages("quantmod")
+install.packages("lubridate")
+library(quantmod)
+library(lubridate)
+library(quantmod)
+amzn = getSymbols("AMZN",auto.assign=FALSE)
+sampleTimes = index(amzn)
+
+cs <- grep("^2012", sampleTimes)
+length(cs)
+
+Y2012 <- subset(sampleTimes, year(sampleTimes) == 2012)
+length(which(wday(Y2012, label = T) == "Mon")) 
+cs2 <- grep("^2012", sampleTimes)
+length(cs2)
+```
+
